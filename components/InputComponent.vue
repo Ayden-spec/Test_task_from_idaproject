@@ -80,6 +80,7 @@ label {
     margin-top: 5px;
     font-size: 12px;
     font-weight: 400;
+    -moz-appearance: textfield;
     &::placeholder {
       color: $font-grey;
     }

@@ -63,7 +63,7 @@ export default {
   },
   methods: {
     addNewProduct() {
-      if (this.active_button) {
+      if (this.active_button && this.input_price > 0) {
         this.$emit("addProduct", {
           name: this.input_name,
           description: this.input_description,
