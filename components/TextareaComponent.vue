@@ -24,7 +24,7 @@ export default {
   },
   methods: {
     hasFocus() {
-      if (this.required) {
+      if (this.required && this.value.length === 0) {
         this.focus_active = true;
       }
     },

@@ -26,7 +26,7 @@ export default {
   },
   methods: {
     hasFocus() {
-      if (this.required) {
+      if (this.required && this.value.length === 0) {
         this.focus_active = true;
       }
     },
@@ -82,6 +82,10 @@ label {
     font-weight: 400;
     &::placeholder {
       color: $font-grey;
+    }
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
     }
   }
 }

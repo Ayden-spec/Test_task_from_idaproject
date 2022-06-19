@@ -70,6 +70,10 @@ export default {
           image: this.input_image,
           price: this.input_price,
         });
+        this.input_name = "";
+        this.input_description = "";
+        this.input_image = "";
+        this.input_price = "";
       }
     },
   },
@@ -79,8 +83,11 @@ export default {
 <style lang='scss' scoped>
 .add_new_product_container {
   margin: 32px 0 0 32px;
+  @media (max-width: 750px) {
+    margin: 32px 16px 0 16px;
+  }
   h2 {
-    margin: 0 0 16px 16px;
+    margin: 0 0 16px 0;
     height: 36px;
   }
   .card_add_new_product {
@@ -88,7 +95,7 @@ export default {
     height: 440px;
     padding: 24px;
 
-    background: #fffefb;
+    background: $background-white_two;
     box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.04),
       0px 6px 10px rgba(0, 0, 0, 0.02);
     border-radius: 4px;
