@@ -7,7 +7,7 @@
         :value="select_value"
         @onInput="select_value = $event"
       />
-      <transition-group name="grid_products" tag="p" class="grid_products">
+      <transition-group name="grid_products" class="grid_products">
         <ProductCard
           v-for="product in products_array"
           :key="product.id"
@@ -24,13 +24,13 @@
 
 <script>
 export default {
-  mounted() {
+  mounted() { //здесь должен быть запрос на сервер
     let products_storage = JSON.parse(localStorage.getItem("products"));
 
     if (Array.isArray(products_storage)) {
       this.products = products_storage;
     } else {
-      this.SetStoreProducts();
+      this.products = this.products_default //костыль, за что извиняюсь
     }
   },
   methods: {
@@ -59,23 +59,18 @@ export default {
   },
   computed: {
     products_array() {
-      let result = [];
+      let result = [...this.products];
       switch (this.select_value) {
-        case "По умолчанию":
-          result = this.products;
-          break;
         case "По наименованию":
-          result = this.products
-            .slice(0)
-            .sort((a, b) =>
-              a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1
-            );
+          result.sort((a, b) =>
+            a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1
+          );
           break;
         case "По цене min":
-          result = this.products.slice(0).sort((a, b) => a.price - b.price);
+          result.sort((a, b) => a.price - b.price);
           break;
         case "По цене max":
-          result = this.products.slice(0).sort((a, b) => b.price - a.price);
+          result.sort((a, b) => b.price - a.price);
           break;
       }
       return result;
@@ -85,8 +80,9 @@ export default {
     return {
       select_value: "По умолчанию",
       select: ["По умолчанию", "По наименованию", "По цене min", "По цене max"],
-      products: [
-        /*{
+      products:[],
+      products_default: [
+        {
           id: 0,
           name: "Наименование товара",
           price: "1000",
@@ -165,7 +161,7 @@ export default {
           description:
             "Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк",
           image: "https://i.imgur.com/JSvsRG2.png",
-        },*/
+        },
       ],
     };
   },
