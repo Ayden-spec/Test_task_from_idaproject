@@ -3,7 +3,7 @@
 
 #### Тестовое задание для [Idaproject](https://idaproject.com/)
 - [Описание задания](https://idaproject.notion.site/Frontend-developer-test-9b834d020d8f406f851479791209beef)
-- [Макет](https://www.figma.com/file/pDYoKTprsV7DOigFGPOZpG/Junior-frontend-developer-test-%28Copy%29?node-id=0:1) (figma)
+- [Макет](https://www.figma.com/file/kIuVw6nSk218pi9iE98iq5/Junior-frontend-developer-test?node-id=0%3A1) (figma)
 
 ## Скрипты:
 
